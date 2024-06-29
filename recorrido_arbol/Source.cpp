@@ -12,16 +12,26 @@ struct CbinNode {
 };
 template <class S>
 class arbol {
-private: 
-	CbinNode<S> root;
 public:
-	bool find(int v ,CbinNode**& ptr);
+	CbinNode<S> root;
+	bool find(int v ,CbinNode<S>**& ptr);
 	void insert(int v);
-	void recorrido(CbinNode**& ptr);
+	void recorrido(CbinNode<S>**& ptr);
 };
 template <class T>
 bool arbol<T>::find(int v, CbinNode<T>**& ptr) {
-	CbinNode<T>** = &root;
+	CbinNode<T>** rec= &root;
+	for (; (*rec) && (*rec)->valor != v; (*rec)->nodes[(*rec)->valor < v]);
+	return (*rec) && (*rec)->valor == v;
+}
+template<class T>
+void arbol<T>::insert(int v) {
+	CbinNode<T>** rec;
+	if (!find(v, rec)) {
+		(*rec) = new CbinNode(v);
+	}
+	else
+		return;
 }
 int main() {
 	return 0;
